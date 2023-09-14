@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="PandaCommandCore">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/_Servers/PandaAdminTools/plugins/PandaCommandCore.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Desktop/_Servers/PandaAdminTools/plugins/PandaCommandCore.jar!/" />
+    </SOURCES>
+  </library>
+</component>

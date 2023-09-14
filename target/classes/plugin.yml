@@ -1,0 +1,7 @@
+name: PandaAdminTools
+version: 1.0.0
+description: Plugin For Admin Tools
+authors: [Closeplanet2]
+main: com.closeplanet2.pandaadmintools.PandaAdminTools
+depend: [PandaSpigotCore, PandaCommandCore, PandaConfigCore]
+api-version: 1.20
