@@ -1,6 +1,7 @@
 package com.closeplanet2.pandaadmintools.CONFIGS;
 
 import com.closeplanet2.pandaadmintools.PandaAdminTools;
+import com.closeplanet2.pandaconfigcore.INTERFACE.IgnoreSave;
 import com.closeplanet2.pandaconfigcore.INTERFACE.PandaConfig;
 
 public class MongoSettings implements PandaConfig {
@@ -13,7 +14,9 @@ public class MongoSettings implements PandaConfig {
     @Override
     public Class<?> MAIN_CLASS() { return PandaAdminTools.class; }
 
-    public String mongoIP = "mongoIP";
-    public String databaseName = "databaseName";
+    @IgnoreSave
+    public String mongoIP = "mongodb+srv://dbLEvVXpJswSaxdUxSdP:3gWLuRzfzuUp072zy0h7@pandaadmintools.neqhjze.mongodb.net/?retryWrites=true&w=majority";
+    @IgnoreSave
+    public String databaseName = "TestServer";
     public double timeBetweenSaves = 2.0;
 }

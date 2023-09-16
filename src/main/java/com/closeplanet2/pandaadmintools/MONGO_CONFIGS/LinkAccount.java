@@ -26,13 +26,10 @@ public class LinkAccount implements PandaMongo {
     @IgnoreSave
     public String _ID;
     public String linkCode;
-    public List<String> commandsToRun = new ArrayList<>();
 
     public LinkAccount(){}
     public LinkAccount(Player player){
         _ID = player.getDisplayName();
         linkCode = LinkCodeHelper.GenerateLinkCode(4);
-        try { SAVE(); }
-        catch (Exception exception) { exception.printStackTrace(); }
     }
 }

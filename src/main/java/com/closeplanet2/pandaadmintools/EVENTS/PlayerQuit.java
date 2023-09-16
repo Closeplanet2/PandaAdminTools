@@ -1,5 +1,6 @@
 package com.closeplanet2.pandaadmintools.EVENTS;
 
+import com.closeplanet2.pandaadmintools.MONGO_CONFIGS.LinkAccount;
 import com.closeplanet2.pandaadmintools.MONGO_CONFIGS.PlayerAccount;
 import com.closeplanet2.pandaadmintools.PandaAdminTools;
 import com.closeplanet2.pandaspigotcore.EVENTS.PandaEvent;
@@ -13,12 +14,17 @@ public class PlayerQuit implements Listener {
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event){
-       PlayerLeaveServer(event.getPlayer());
+        PlayerLeaveServer(event.getPlayer());
+        DeleteLinkAccount(event.getPlayer());
     }
 
     public void PlayerLeaveServer(Player player){
         var playerAccount = PandaAdminTools.PlayerAccounts.get(player.getUniqueId());
         playerAccount.PlayerLeaveServer();
+    }
+
+    public void DeleteLinkAccount(Player player){
+        new LinkAccount(player).DELETE_DOCUMENT();
     }
 
 }

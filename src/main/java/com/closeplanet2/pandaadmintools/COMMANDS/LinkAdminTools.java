@@ -28,7 +28,10 @@ public class LinkAdminTools extends PlayerCommand {
     public void InvokeVoid(Method method, Object[] objects) throws InvocationTargetException, IllegalAccessException { method.invoke(this, objects); }
 
     @Override
-    public boolean CommandError(PlayerCommandError playerCommandError, Player player, String s) { return false; }
+    public boolean CommandError(PlayerCommandError playerCommandError, Player player, String s) {
+        if(playerCommandError == PlayerCommandError.PLAYER_COMMANDS_LOCKED) player.sendMessage(playerCommandError.error);
+        return false;
+    }
 
     @PCMethod
     @PCPerm("AdminTools.AdminAccount")
@@ -37,6 +40,9 @@ public class LinkAdminTools extends PlayerCommand {
         if(player == null) return;
 
         var linkAccount = new LinkAccount(player);
+        try { linkAccount.SAVE(); }
+        catch (Exception exception) { exception.printStackTrace(); }
+
         MessageLibary.SendLinkCodeGenTOPlayer(player, linkAccount);
     }
 }

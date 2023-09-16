@@ -11,6 +11,8 @@ import org.bukkit.entity.Player;
 
 public class MessageLibary {
     public static void SendLinkCodeGenTOPlayer(Player player, LinkAccount linkAccount){
+        player.sendMessage(ChatColor.BLACK + "====================");
+
         var message1 = new TextComponent(ChatColor.GREEN + "Link code has been generated!");
         player.spigot().sendMessage(message1);
 
@@ -28,5 +30,7 @@ public class MessageLibary {
         message4.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("[CLICK TO COPY]")));
         message4.setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, linkAccount.linkCode));
         player.spigot().sendMessage(message4);
+
+        player.sendMessage(ChatColor.BLACK + "====================");
     }
 }
