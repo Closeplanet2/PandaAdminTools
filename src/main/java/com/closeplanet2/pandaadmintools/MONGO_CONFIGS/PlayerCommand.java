@@ -12,6 +12,7 @@ import com.closeplanet2.pandaspigotcore.PLAYER.PlayerAPI;
 import com.closeplanet2.pandaspigotcore.PLAYER.TOGGLE_ACTIONS;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
 public class PlayerCommand implements PandaMongo {
@@ -58,9 +59,13 @@ public class PlayerCommand implements PandaMongo {
             PlayerCommandHelper.SendToggleCommandMessage(commandPlayer, targetPlayer, PlayerAPI.GET_TOGGLE_STAT(targetPlayer, TOGGLE_ACTIONS.PlayerMoveEvent), playerCommandAction.key);
         }
         else if(playerCommandAction == PlayerCommandAction.TELEPORT_TO_PLAYER) commandPlayer.teleport(targetPlayer);
-        else if(playerCommandAction == PlayerCommandAction.SPECTATE_PLAYER) targetPlayer.addPassenger(commandPlayer);
+        else if(playerCommandAction == PlayerCommandAction.SPECTATE_PLAYER){
+            commandPlayer.setGameMode(GameMode.SPECTATOR);
+            commandPlayer.setSpectatorTarget(targetPlayer);
+        }
         else if(playerCommandAction == PlayerCommandAction.VIEW_INVENTORY) commandPlayer.openInventory(targetPlayer.getInventory());
         else if(playerCommandAction == PlayerCommandAction.KICK_PLAYER) targetPlayer.kickPlayer("Kicked By: " + commandPlayer.getDisplayName());
+        else if(playerCommandAction == PlayerCommandAction.CLEAR_INVENTORY) targetPlayer.getInventory().clear();
 
         DELETE_DOCUMENT();
     }

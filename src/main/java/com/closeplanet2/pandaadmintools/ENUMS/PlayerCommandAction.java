@@ -23,7 +23,8 @@ public enum PlayerCommandAction {
     TELEPORT_TO_PLAYER(null, null, false),
     SPECTATE_PLAYER(null, null, false),
     VIEW_INVENTORY(null, null, false),
-    KICK_PLAYER(null, null, false);
+    KICK_PLAYER(null, null, false),
+    CLEAR_INVENTORY(null, null, false);
 
     public final String key;
     public final TOGGLE_ACTIONS toggle_actions;
